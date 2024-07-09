@@ -1,9 +1,17 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { Stack } from 'expo-router'
+import { View, Text } from "react-native";
+import React from "react";
+import { Stack, Tabs } from "expo-router";
+import TabBar from "../../components/tabBar";
+import HomeHeader from "../../components/homeHeader";
 
 export default function _layout() {
   return (
-    <Stack />
-  )
+    <Tabs
+      tabBar={props => <TabBar {...props} />}
+    >
+      <Tabs.Screen name="home" options={{ header: () => <HomeHeader title={"Home"}/> }} />
+      <Tabs.Screen name="test" options={{ header: () => <HomeHeader title={"Test"}/> }} />
+      <Tabs.Screen name="profile" options={{ header: () => <HomeHeader title={"Profile"}/> }} />
+    </Tabs>
+  );
 }
