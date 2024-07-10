@@ -27,16 +27,19 @@ export default function UpdateData({ dbUser }) {
   const updateUser = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`http://192.168.1.3:3000/profile/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          age: ageRef.current,
-          contactNum: contactRef.current,
-        }),
-      });
+      const response = await fetch(
+        `https://incident-report-app-backend.vercel.app/profile/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            age: ageRef.current,
+            contactNum: contactRef.current,
+          }),
+        }
+      );
 
       const result = await response.json();
 

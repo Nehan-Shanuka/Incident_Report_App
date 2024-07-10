@@ -64,16 +64,19 @@ export default function ReportComponent() {
 
     // Send the data to the backend
     try {
-      const response = await fetch("http://192.168.1.3:3000/report", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      const response = await fetch(
+        "https://incident-report-app-backend.vercel.app/report",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
 
       const result = await response.json();
-      
+
       if (response.status === 201) {
         Alert.alert("Incident Report", "Report Submitted!");
       }

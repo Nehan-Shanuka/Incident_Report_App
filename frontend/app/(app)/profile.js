@@ -32,7 +32,9 @@ export default function Profile() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://192.168.1.3:3000/profile");
+      const response = await axios.get(
+        "https://incident-report-app-backend.vercel.app/profile"
+      );
       setData(response.data);
 
       let foundUser = null;
