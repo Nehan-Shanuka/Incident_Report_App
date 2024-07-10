@@ -31,7 +31,7 @@ export default function HomeHeader({title}) {
   return (
     <View
       style={{ paddingTop: ios ? top : top + 10 }}
-      className="flex-row justify-between px-5 bg-indigo-400 pb-6 rounded-b-3xl shadow"
+      className="flex-row justify-between px-5 bg-indigo-500 pb-6 rounded-b-3xl shadow"
     >
       <View>
         <Text style={{ fontSize: hp(5) }} className="font-bold text-white">
@@ -43,9 +43,9 @@ export default function HomeHeader({title}) {
           <MenuTrigger>
             <Image
               style={{ height: hp(4.3), aspectRatio: 1, borderRadius: 100 }}
-              source={user?.profileUrl}
+              source={user?.profileUrl ? { uri: user.profileUrl } : blurhash}
               placeholder={blurhash}
-              transition={100}
+              transition={500}
             />
           </MenuTrigger>
           <MenuOptions

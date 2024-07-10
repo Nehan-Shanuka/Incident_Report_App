@@ -56,7 +56,6 @@ const ImageGrid = ({ currentTab, router }) => {
   const currentTabData = () => {
     switch (currentTab) {
       case "Personal":
-        console.log(dataObj.personal);
         return dataObj.personal;
       case "Business":
         return dataObj.business;
@@ -93,7 +92,7 @@ const styles = StyleSheet.create({
   container: {
     minHeight: 3,
     width: wp(100),
-    paddingVertical: 20,
+    paddingVertical: 15,
     paddingHorizontal: 5,
   },
   listContainerStyle: {

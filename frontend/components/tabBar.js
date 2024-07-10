@@ -4,11 +4,12 @@ import { AntDesign } from "@expo/vector-icons";
 import TabBarButton from "./tabBarButton";
 
 export default function TabBar({ state, descriptors, navigation }) {
-  const primaryColor = "#0891b2";
+  const primaryColor = "#6366F1";
   const grayColor = "#737373";
 
   return (
     <View style={styles.tabbar}>
+
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
@@ -51,31 +52,6 @@ export default function TabBar({ state, descriptors, navigation }) {
             style={styles.tabbarItem}
           />
         );
-
-        // return (
-        //   <TouchableOpacity
-        //     key={route.name}
-        //     accessibilityRole="button"
-        //     accessibilityState={isFocused ? { selected: true } : {}}
-        //     accessibilityLabel={options.tabBarAccessibilityLabel}
-        //     testID={options.tabBarTestID}
-        //     onPress={onPress}
-        //     onLongPress={onLongPress}
-        //     style={styles.tabbarItem}
-        //   >
-        //     {icons[route.name]({
-        //       color: isFocused ? primaryColor : grayColor,
-        //     })}
-        //     <Text
-        //       style={{
-        //         color: isFocused ? primaryColor : grayColor,
-        //         fontSize: 11,
-        //       }}
-        //     >
-        //       {label}
-        //     </Text>
-        //   </TouchableOpacity>
-        // );
       })}
     </View>
   );

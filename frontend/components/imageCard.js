@@ -6,21 +6,10 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 
-// const data = [
-//   "../assets/images/save-money.png",
-//   "../assets/images/home-insurance.png",
-//   "../assets/images/car-insurance.png",
-//   "../assets/images/care.png",
-//   "../assets/images/healthcare.png",
-//   "../assets/images/mortgage.png",
-// ]
-
 const ImageCard = ({ item, columns, index, imagePath }) => {
   const isLastInRow = () => {
     return (index + 1) % columns === 0;
   };
-
-  console.log(imagePath);
 
   // Function to get the correct image path
   const getImage = (item) => {
@@ -50,9 +39,6 @@ const ImageCard = ({ item, columns, index, imagePath }) => {
 
   return (
     <Pressable
-      // onPress={() =>
-      //   router.push({ pathname: "home/image", params: { ...item } })
-      // }
       style={[styles.imageWrapper, !isLastInRow() && styles.spacing]}
     >
       <View
@@ -64,16 +50,14 @@ const ImageCard = ({ item, columns, index, imagePath }) => {
             alignItems: "center",
           },
         ]}
-        className="bg-indigo-300 gap-5"
-        // source={item?.webformatURL}
+        className="bg-violet-300 gap-5"
         transition={100}
       >
         <Image
           source={getImage(item)}
           style={{ height: hp(7), width: wp(15) }}
-          // className="justify-center items-center"
         />
-        <Text className="text-2xl font-semibold text-center align-middle">
+        <Text className="text-xl font-semibold text-center align-middle">
           {item}
         </Text>
       </View>
@@ -99,7 +83,3 @@ const styles = StyleSheet.create({
 });
 
 export default ImageCard;
-
-// height: hp(2), width: wp(2),
-
-// how to add imagePaths to the ImageCard component

@@ -8,9 +8,9 @@ import { Image } from "expo-image";
 import Animated, { FadeInRight } from "react-native-reanimated";
 
 const data = [
-  "https://t4.ftcdn.net/jpg/06/80/35/81/360_F_680358140_OWBF6ezZOzgJ8dLhc998DSmqXHd08ej9.jpg",
-  "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS950fJAPIoaCLL0LxjONBPVmdKI9Cf0xY26SuhWHNwJ6BYE_gNJEwKrDX03yOZT5U2We4&usqp=CAU",
+  "https://img.freepik.com/premium-vector/health-insurance-landscape-banner-design-template_262129-10785.jpg",
+  "https://img.freepik.com/premium-vector/home-insurance-landscape-banner-design-template_262129-10907.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzHOgexT8KAGxIgpiX51J-ZDSxUP1SgAHOHw&s",
 ];
 
 export default function Carousel() {
@@ -45,6 +45,8 @@ const styles = StyleSheet.create({
   category: {
     padding: 12,
     paddingHorizontal: 15,
+    borderWidth: 1,
+    borderColor: "black",
     borderRadius: 10,
     width: wp(80),
     height: hp(20),

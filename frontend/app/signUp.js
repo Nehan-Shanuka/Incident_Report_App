@@ -19,16 +19,58 @@ import { useRouter } from "expo-router";
 import Loading from "../components/loading";
 import CustomKeyboardView from "../components/customKeyboardView";
 import { useAuth } from "../context/authContext";
+import axios from "axios";
 
 export default function SignUp() {
   const router = useRouter();
-  const {register} = useAuth();
+  const { register } = useAuth();
   const [loading, setLoading] = useState(false);
 
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const usernameRef = useRef("");
   const profileRef = useRef("");
+
+  //   const createDbProfile = async () => {
+  //     try {
+  //       await axios.post("http://localhost:3000/profile", {
+  //         username: usernameRef.current,
+  //         // secret: passwordRef.current,
+  //         email: emailRef.current,
+  //         // first_name: usernameRef.current,
+  //         // last_name: usernameRef.current,
+  //         profileUrl: profileRef.current,
+  //       });
+  //     } catch (error) {
+  //       console.log("error creating db profile: ", error);
+  //     }
+  // };
+
+  const createDbProfile = async () => {
+    // Construct the data object
+    const data = {
+      username: usernameRef.current,
+      email: emailRef.current,
+      profileUrl: profileRef.current,
+      age: "",
+      contact: "",
+    };
+
+    // Send the data to the backend
+    try {
+      const response = await fetch("http://192.168.1.3:3000/profile", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      const result = await response.json();
+      // console.log("Document created:", result);
+    } catch (error) {
+      console.error("Error creating document:", error);
+    }
+  };
 
   const handleRegister = async () => {
     if (
@@ -42,10 +84,17 @@ export default function SignUp() {
     }
     setLoading(true);
 
-    let response = await register(emailRef.current, passwordRef.current, usernameRef.current, profileRef.current);
+    let response = await register(
+      emailRef.current,
+      passwordRef.current,
+      usernameRef.current,
+      profileRef.current
+    );
+
+    if (response.success) createDbProfile();
+
     setLoading(false);
 
-    // console.log('got result: ', response);
     if (!response.success) {
       Alert.alert("Sign Up", response.msg);
     }
@@ -189,7 +238,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     height: hp(6.5),
-    // responsive rounded-xl
     borderRadius: hp(3) / 2,
   },
 });
