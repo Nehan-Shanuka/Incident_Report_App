@@ -1,15 +1,22 @@
 # Welcome to Incident Report App 👋
 
-New Release: v1.0.0
+This is a mobile application that allows users to report incidents that they have witnessed or experienced. The app is designed to help users report incidents in a safe and secure manner. The app is built with React Native and Expo Router.
+
+New Release: v1.0.0 (Go to [Release Notes]())
 
 App UIs
 
 !["Sign In Page"](./frontend/assets/images/sign_in_ui.jpg)
+!["Sign Up Page"](./frontend/assets/images/sign_up_ui.jpg)
 !["Home Page"](./frontend/assets/images/home_page_ui.jpg)
+!["Home Page Selection Section"](./frontend/assets/images/section_ui.jpg)
+!["Incident Report Page"](./frontend/assets/images/report_ui.jpg)
+!["Profile Page"](./frontend/assets//images/profile_ui.jpg)
+!["Sign Out"](./frontend/assets//images/sign_out_ui.jpg)
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## Get started
+## For Development: Get started
 
 1. Install dependencies
 
